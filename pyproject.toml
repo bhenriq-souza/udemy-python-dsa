@@ -1,0 +1,28 @@
+[project]
+name = "udemy-python-dsa"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "coverage>=7.9.2",
+]
+
+[tool.black]
+line-length = 88
+target-version = ['py39']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | migrations  # if you want to skip Django/Alembic migrations
+)/
+'''
+skip-string-normalization = true
+skip-magic-trailing-comma = true

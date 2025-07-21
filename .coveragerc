@@ -1,0 +1,19 @@
+[run]
+omit =
+    */tests/*
+    */__init__.py
+branch = True
+source =
+    common
+    linked_list 
+
+[report]
+omit =
+    */tests/*
+    */__init__.py
+
+[html]
+directory = coverage_html_report
+
+[xml]
+output = coverage_xml_report/coverage.xml
