@@ -15,3 +15,9 @@ print(f"Popped Node: {new_linked_list.pop()}")
 new_linked_list.print_list()
 
 print(f"List Length: {new_linked_list.length}")
+
+new_linked_list.prepend(value=50)
+
+new_linked_list.print_list()
+
+print(f"List Length: {new_linked_list.length}")

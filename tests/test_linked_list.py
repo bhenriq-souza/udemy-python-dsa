@@ -52,7 +52,7 @@ class LinkedListUnitTests(unittest.TestCase):
     def test_add_to_empty_list_with_tail(self):
         ll: LinkedList = LinkedList(1)
 
-        ll.pop()
+        ll.empty_list()
 
         self.assertIsNone(ll.head)
         self.assertIsNone(ll.tail)
@@ -67,7 +67,7 @@ class LinkedListUnitTests(unittest.TestCase):
     def test_pop_from_empty_list(self):
         ll: LinkedList = LinkedList(1)
 
-        ll.pop()
+        ll.empty_list()
 
         self.assertEqual(ll.head, None)
         self.assertEqual(ll.tail, None)
@@ -101,6 +101,42 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertEqual(popped_node.value, 2)
         self.assertEqual(ll.tail.value, 1)
         self.assertEqual(ll.length, 1)
+    
+    def test_prepend_to_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.empty_list()
+
+        self.assertIsNone(ll.head)
+        self.assertIsNone(ll.tail)
+        self.assertEqual(ll.length, 0)
+
+        ll.prepend(2)
+
+        self.assertEqual(ll.head.value, 2)
+        self.assertEqual(ll.tail.value, 2)
+        self.assertEqual(ll.length, 1)
+    
+    def test_prepend_to_non_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        ll.prepend(0)
+
+        self.assertEqual(ll.head.value, 0)
+        self.assertEqual(ll.tail.value, 3)
+        self.assertEqual(ll.length, 4)
+
+        # Check if the order is maintained
+        current = ll.head
+        values = []
+        while current:
+            values.append(current.value)
+            current = current.next
+
+        self.assertEqual(values, [0, 1, 2, 3])
 
 
 if __name__ == '__main__':
