@@ -191,29 +191,21 @@ class LinkedList:
             value (any): Value for the new node.
 
         Returns:
-            bool: _description_
+            bool: True if the insert was successful.
         """
-        if index < 0 or index >= self.length + 1:
+        if index < 0 or index > self.length:
             return False
         
+        if index == 0:
+            return self.prepend(value)
+        
+        if index == self.length:
+            return self.append(value)
+        
         new_node = Node(value)
-
-        if self.length == 0:
-            self.head = new_node
-            self.tail = new_node
-            self.length = 1
-
-            return True
-        
-        prev: Node | None = None
-        curr: Node = self.head
-
-        for _ in range(index):
-            prev = curr
-            curr = curr.next
-        
-        prev.next = new_node
-        new_node.next = curr
+        temp = self.get_value(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node
         self.length += 1
 
         return True

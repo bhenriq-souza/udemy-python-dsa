@@ -310,6 +310,20 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertIsInstance(node.next, Node)
         self.assertEqual(node.next.value, 2)
 
+    def test_insert_to_the_end_non_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        result = ll.insert(3, "test")
+
+        node = ll.get_value(3)
+
+        self.assertTrue(result)
+        self.assertEqual(ll.length, 4)
+        self.assertEqual(node.value, "test")
+        self.assertIsNone(node.next)
 
 if __name__ == '__main__':
     unittest.main()
