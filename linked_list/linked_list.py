@@ -13,7 +13,7 @@ class LinkedList:
 
     def empty_list(self) -> None:
         """Resets the linked list to an empty state. \n
-        Complexity: O(1)
+        **Complexity**: O(1)
         """
         self.head = None
         self.tail = None
@@ -33,7 +33,7 @@ class LinkedList:
     # Complexity of O(1)
     def append(self, value: any) -> bool:
         """Appends a new node with the given value to the end of the linked list. \n
-        Complexity: O(1) \n
+        **Complexity**: O(1) \n
         Parameters:
             value (any): The value to be stored in the new node.
         Returns:
@@ -58,9 +58,9 @@ class LinkedList:
     # Complexity of O(n)
     def pop(self) -> Node | None:
         """Removes the last node from the linked list and returns it. \n
-        Complexity: O(n)
+        **Complexity**: O(n)
         Returns:
-            Node | None: The popped node or None if the list is empty.
+            node (Node | None): The popped node or None if the list is empty.
         """
         popped_node: Node | None = None
 
@@ -96,7 +96,7 @@ class LinkedList:
     # Complexity of O(1)
     def prepend(self, value: any) -> bool:
         """Prepends a new node with the given value to the start of the linked list. \n
-        Complexity: O(1)
+        **Complexity**: O(1)
         Parameters:
             value (any): The value to be stored in the new node.
         Returns:
@@ -122,9 +122,9 @@ class LinkedList:
     # Complexity of O(1)
     def pop_first(self) -> Node | None:
         """Removes the first node from the linked list and returns it. \n
-        Complexity: O(1)
+        **Complexity**: O(1)
         Returns:
-            Node | None: The popped node or None if the list is empty.
+            node (Node | None): The popped node or None if the list is empty.
         """
         if self.length == 0:
             return None
@@ -143,3 +143,42 @@ class LinkedList:
         self.length -= 1
 
         return first_node
+
+    def get_value(self, index: int) -> Node | None:
+        """Retrieves the node at the specified index. \n
+        **Complexity**: O(n)
+        Parameters:
+            index (int): The index of the node to retrieve.
+        Returns:
+            node (Node | None): The node at the specified index or None if the index is out of bounds.
+        """
+        if index < 0 or index >= self.length:
+            return None
+
+        current = self.head
+
+        for _ in range(index):
+            current = current.next
+        
+        return current
+
+    def set_value(self, index: int, value: any) -> bool:
+        """Sets the value of a node in a specified index. \n
+        **Complexity**: O(n)
+        Parameters:
+            index (int): Index of the node to change its value.
+            value (any): New value for the node.
+        Returns:
+            bool: True if the setting was possible.
+        """
+        if index < 0 or index >= self.length:
+            return False
+
+        current = self.head
+
+        for _ in range(index):
+            current = current.next
+
+        current.value = value
+
+        return True

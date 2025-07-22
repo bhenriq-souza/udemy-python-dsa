@@ -129,7 +129,6 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertEqual(ll.tail.value, 3)
         self.assertEqual(ll.length, 4)
 
-        # Check if the order is maintained
         current = ll.head
         values = []
         while current:
@@ -185,6 +184,80 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertIsNone(ll.head)
         self.assertIsNone(ll.tail)
         self.assertEqual(ll.length, 0)
+    
+    def test_get_value_from_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.empty_list()
+
+        node = ll.get_value(0)
+        self.assertIsNone(node)
+    
+    def test_get_value_from_single_element_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        node = ll.get_value(0)
+
+        self.assertEqual(node.value, 1)
+        self.assertIsNone(node.next)
+
+    def test_get_value_with_negative_index(self):
+        ll: LinkedList = LinkedList(1)
+
+        node = ll.get_value(-1)
+        self.assertIsNone(node)
+
+    def test_get_value_with_index_greater_then_length(self):
+        ll: LinkedList = LinkedList(1)
+
+        node = ll.get_value(3)
+        self.assertIsNone(node)
+    
+    def test_get_value_from_multiple_elements_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        node = ll.get_value(2)
+        self.assertEqual(node.value, 3)
+    
+    def test_set_value_to_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.empty_list()
+
+        node = ll.set_value(1, "test")
+        self.assertFalse(node)
+    
+    def test_set_value_to_index_greater_then_length(self):
+        ll: LinkedList = LinkedList(1)
+
+        result = ll.set_value(3, "test")
+        self.assertFalse(result)
+    
+    def test_set_value_to_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        result = ll.set_value(0, "test")
+        self.assertTrue(result)
+
+        node = ll.get_value(0)
+        self.assertEqual(node.value, "test")
+        self.assertIsNone(node.next)
+        self.assertEqual(ll.length, 1)
+    
+    def test_set_value_from_multiple_elements_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        result = ll.set_value(2, 4)
+        self.assertTrue(result)
+
+        node = ll.get_value(2)
+        self.assertEqual(node.value, 4)
 
 
 if __name__ == '__main__':

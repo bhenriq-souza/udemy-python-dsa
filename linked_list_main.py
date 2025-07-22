@@ -1,29 +1,41 @@
 from linked_list.linked_list import LinkedList
 
 
-new_linked_list = LinkedList(value=10)
+ll = LinkedList(value=10)
 
-new_linked_list.append(value=20)
-new_linked_list.append(value=30)
-new_linked_list.append(value=40)
+ll.append(value=20)
+ll.append(value=30)
+ll.append(value=40)
 
-new_linked_list.print_list()
+ll.print_list()
 
-print(f"Popped Node: {new_linked_list.pop()}")
-print(f"Popped Node: {new_linked_list.pop()}")
+print(f"Popped Node: {ll.pop()}")
+print(f"Popped Node: {ll.pop()}")
 
-new_linked_list.print_list()
+ll.print_list()
 
-print(f"List Length: {new_linked_list.length}")
+print(f"List Length: {ll.length}")
 
-new_linked_list.prepend(value=50)
+ll.prepend(value=50)
 
-new_linked_list.print_list()
+ll.print_list()
 
-print(f"List Length: {new_linked_list.length}")
+print(f"List Length: {ll.length}")
 
-first_node = new_linked_list.pop_first()
+first_node = ll.pop_first()
 
 print(f"First Node Popped: {first_node.value if first_node else None}")
 
-new_linked_list.print_list()
+ll.print_list()
+
+search_node = ll.get_value(1)
+
+print(f"Search node: {search_node.value if search_node else None}")
+
+ll.set_value(1, "test")
+
+updated_node = ll.get_value(1)
+
+print(f"Updated node: {updated_node.value if search_node else None}")
+
+ll.print_list()
