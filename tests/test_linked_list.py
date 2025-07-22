@@ -101,7 +101,7 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertEqual(popped_node.value, 2)
         self.assertEqual(ll.tail.value, 1)
         self.assertEqual(ll.length, 1)
-    
+
     def test_prepend_to_empty_list(self):
         ll: LinkedList = LinkedList(1)
 
@@ -116,7 +116,7 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertEqual(ll.head.value, 2)
         self.assertEqual(ll.tail.value, 2)
         self.assertEqual(ll.length, 1)
-    
+
     def test_prepend_to_non_empty_list(self):
         ll: LinkedList = LinkedList(1)
 
@@ -137,6 +137,54 @@ class LinkedListUnitTests(unittest.TestCase):
             current = current.next
 
         self.assertEqual(values, [0, 1, 2, 3])
+
+    def test_pop_first_from_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.empty_list()
+
+        self.assertIsNone(ll.head)
+        self.assertIsNone(ll.tail)
+        self.assertEqual(ll.length, 0)
+
+        first_node = ll.pop_first()
+        self.assertIsNone(first_node)
+
+    def test_pop_first_from_single_element_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        first_node = ll.pop_first()
+
+        self.assertEqual(first_node.value, 1)
+        self.assertIsNone(first_node.next)
+        self.assertIsNone(ll.head)
+        self.assertIsNone(ll.tail)
+        self.assertEqual(ll.length, 0)
+
+    def test_pop_first_from_multiple_elements_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        first_node = ll.pop_first()
+        self.assertEqual(first_node.value, 1)
+        self.assertEqual(ll.head.value, 2)
+        self.assertEqual(ll.tail.value, 3)
+        self.assertEqual(ll.length, 2)
+
+        first_node = ll.pop_first()
+        self.assertEqual(first_node.value, 2)
+        self.assertEqual(ll.head.value, 3)
+        self.assertEqual(ll.tail.value, 3)
+        self.assertEqual(ll.length, 1)
+
+        first_node = ll.pop_first()
+        self.assertEqual(first_node.value, 3)
+        self.assertIsNone(first_node.next)
+        self.assertIsNone(ll.head)
+        self.assertIsNone(ll.tail)
+        self.assertEqual(ll.length, 0)
 
 
 if __name__ == '__main__':

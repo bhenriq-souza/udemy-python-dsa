@@ -21,3 +21,9 @@ new_linked_list.prepend(value=50)
 new_linked_list.print_list()
 
 print(f"List Length: {new_linked_list.length}")
+
+first_node = new_linked_list.pop_first()
+
+print(f"First Node Popped: {first_node.value if first_node else None}")
+
+new_linked_list.print_list()
