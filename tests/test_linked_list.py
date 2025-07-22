@@ -3,6 +3,7 @@ import unittest
 from io import StringIO
 from unittest.mock import patch
 
+from common.node import Node
 from linked_list.linked_list import LinkedList
 
 
@@ -258,6 +259,56 @@ class LinkedListUnitTests(unittest.TestCase):
 
         node = ll.get_value(2)
         self.assertEqual(node.value, 4)
+    
+    def test_insert_with_negative_index(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+
+        result = ll.insert(-1, "test")
+
+        self.assertFalse(result)
+        self.assertEqual(ll.length, 2)
+
+    def test_insert_with_index_greater_then_length(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+
+        result = ll.insert(3, "test")
+
+        self.assertFalse(result)
+        self.assertEqual(ll.length, 2)
+
+    def test_insert_to_empty_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.empty_list()
+
+        result = ll.insert(0, "test")
+
+        node = ll.get_value(0)
+
+        self.assertTrue(result)
+        self.assertEqual(ll.length, 1)
+        self.assertEqual(node.value, "test")
+        self.assertIsNone(node.next)
+
+    def test_insert_to_multiple_elements_list(self):
+        ll: LinkedList = LinkedList(1)
+
+        ll.append(2)
+        ll.append(3)
+
+        result = ll.insert(1, "test")
+
+        node = ll.get_value(1)
+
+        self.assertTrue(result)
+        self.assertEqual(ll.length, 4)
+        self.assertEqual(node.value, "test")
+        self.assertIsInstance(node.next, Node)
+        self.assertEqual(node.next.value, 2)
 
 
 if __name__ == '__main__':

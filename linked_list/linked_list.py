@@ -182,3 +182,38 @@ class LinkedList:
         current.value = value
 
         return True
+    
+    def insert(self, index: int, value: any) -> bool:
+        """Inserts new node at a specified index. \n
+        **Complexity**: O(n)
+        Args:
+            index (int): Index where to put the new node.
+            value (any): Value for the new node.
+
+        Returns:
+            bool: _description_
+        """
+        if index < 0 or index >= self.length + 1:
+            return False
+        
+        new_node = Node(value)
+
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+            self.length = 1
+
+            return True
+        
+        prev: Node | None = None
+        curr: Node = self.head
+
+        for _ in range(index):
+            prev = curr
+            curr = curr.next
+        
+        prev.next = new_node
+        new_node.next = curr
+        self.length += 1
+
+        return True

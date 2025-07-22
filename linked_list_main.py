@@ -39,3 +39,9 @@ updated_node = ll.get_value(1)
 print(f"Updated node: {updated_node.value if search_node else None}")
 
 ll.print_list()
+
+result = ll.insert(2, "test2")
+
+print(f"Insert result: {result}")
+
+ll.print_list()
