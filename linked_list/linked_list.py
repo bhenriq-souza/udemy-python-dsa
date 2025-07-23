@@ -30,7 +30,6 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
 
-    # Complexity of O(1)
     def append(self, value: any) -> bool:
         """Appends a new node with the given value to the end of the linked list. \n
         **Complexity**: O(1) \n
@@ -55,7 +54,6 @@ class LinkedList:
 
         return True
 
-    # Complexity of O(n)
     def pop(self) -> Node | None:
         """Removes the last node from the linked list and returns it. \n
         **Complexity**: O(n)
@@ -93,7 +91,6 @@ class LinkedList:
 
         return popped_node
 
-    # Complexity of O(1)
     def prepend(self, value: any) -> bool:
         """Prepends a new node with the given value to the start of the linked list. \n
         **Complexity**: O(1)
@@ -119,7 +116,6 @@ class LinkedList:
 
         return True
 
-    # Complexity of O(1)
     def pop_first(self) -> Node | None:
         """Removes the first node from the linked list and returns it. \n
         **Complexity**: O(1)
@@ -144,7 +140,7 @@ class LinkedList:
 
         return first_node
 
-    def get_value(self, index: int) -> Node | None:
+    def get(self, index: int) -> Node | None:
         """Retrieves the node at the specified index. \n
         **Complexity**: O(n)
         Parameters:
@@ -203,9 +199,35 @@ class LinkedList:
             return self.append(value)
         
         new_node = Node(value)
-        temp = self.get_value(index - 1)
+        temp = self.get(index - 1)
         new_node.next = temp.next
         temp.next = new_node
         self.length += 1
 
         return True
+    
+    def remove(self, index: int) -> Node | None:
+        """Removes a node of a specified index. \n
+
+        Args:
+            index (int): Index of the node to be removed.
+
+        Returns:
+            node (Node | None): Node removed
+        """
+        if index >= self.length or index < 0:
+            return None
+
+        if index == 0:
+            return self.pop_first()
+
+        if index == self.length - 1:
+            return self.pop()
+        
+        previous = self.get(index - 1)
+        intented = previous.next
+        previous.next = intented.next
+        intented.next = None
+        self.length -= 1
+
+        return intented

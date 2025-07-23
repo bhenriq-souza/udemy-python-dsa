@@ -7,41 +7,55 @@ ll.append(value=20)
 ll.append(value=30)
 ll.append(value=40)
 
+print("Current list before delete: ")
 ll.print_list()
 
-print(f"Popped Node: {ll.pop()}")
-print(f"Popped Node: {ll.pop()}")
+deleted = ll.remove(3)
 
+print(f"Deleted result: {deleted.value}")
+
+print("Current list after delete: ")
 ll.print_list()
 
-print(f"List Length: {ll.length}")
+# print(f"Popped Node: {ll.pop()}")
+# print(f"Popped Node: {ll.pop()}")
 
-ll.prepend(value=50)
+# ll.print_list()
 
-ll.print_list()
+# print(f"List Length: {ll.length}")
 
-print(f"List Length: {ll.length}")
+# ll.prepend(value=50)
 
-first_node = ll.pop_first()
+# ll.print_list()
 
-print(f"First Node Popped: {first_node.value if first_node else None}")
+# print(f"List Length: {ll.length}")
 
-ll.print_list()
+# first_node = ll.pop_first()
 
-search_node = ll.get_value(1)
+# print(f"First Node Popped: {first_node.value if first_node else None}")
 
-print(f"Search node: {search_node.value if search_node else None}")
+# ll.print_list()
 
-ll.set_value(1, "test")
+# search_node = ll.get(1)
 
-updated_node = ll.get_value(1)
+# print(f"Search node: {search_node.value if search_node else None}")
 
-print(f"Updated node: {updated_node.value if search_node else None}")
+# ll.set_value(1, "test")
 
-ll.print_list()
+# updated_node = ll.get(1)
 
-result = ll.insert(2, "test2")
+# print(f"Updated node: {updated_node.value if search_node else None}")
 
-print(f"Insert result: {result}")
+# ll.print_list()
 
-ll.print_list()
+# result = ll.insert(2, "test2")
+
+# print(f"Insert result: {result}")
+
+# ll.print_list()
+
+# deleted = ll.remove(2)
+
+# print(f"Deleted result: {deleted.value}")
+
+# ll.print_list()
