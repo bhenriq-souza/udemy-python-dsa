@@ -231,3 +231,22 @@ class LinkedList:
         self.length -= 1
 
         return intented
+    
+    def reverse(self):
+        """
+        Reverses the linked list
+        """
+        # switching head and tail with an auxiliary var.
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+
+        # starting auxiliary variables
+        after = temp.next
+        before = None
+
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after

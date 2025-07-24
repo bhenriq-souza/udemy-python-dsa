@@ -6,6 +6,7 @@ ll = LinkedList(value=10)
 ll.append(value=20)
 ll.append(value=30)
 ll.append(value=40)
+ll.prepend(value=18)
 
 print("Current list before delete: ")
 ll.print_list()
@@ -16,6 +17,12 @@ print(f"Deleted result: {deleted.value}")
 
 print("Current list after delete: ")
 ll.print_list()
+
+ll.reverse()
+
+print("Current list after reverse: ")
+ll.print_list()
+
 
 # print(f"Popped Node: {ll.pop()}")
 # print(f"Popped Node: {ll.pop()}")
