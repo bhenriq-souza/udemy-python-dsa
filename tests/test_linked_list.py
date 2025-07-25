@@ -365,6 +365,17 @@ class LinkedListUnitTests(unittest.TestCase):
         self.assertEqual(ll.head.value, 1)
         self.assertEqual(ll.tail.value, 3)
         self.assertEqual(ll.length, 2)
+    
+    def test_reverse_list(self):
+        ll: LinkedList = LinkedList(1)
+        ll.append(2)
+        ll.append(3)
+
+        ll.reverse()
+
+        self.assertEqual(ll.head.value, 3)
+        self.assertEqual(ll.tail.value, 1)
+        self.assertEqual(ll.length, 3)
 
 
 if __name__ == '__main__':
