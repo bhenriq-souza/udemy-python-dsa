@@ -1,10 +1,18 @@
 .
 ├── README.md
 ├── common
+│   ├── __pycache__
+│   │   └── node.cpython-312.pyc
 │   └── node.py
+├── exercises
+│   └── linked_list
+│       ├── add_two_numbers.py
+│       ├── find_middle_node.py
+│       ├── helpers.py
+│       └── types.py
 ├── linked_list
 │   └── linked_list.py
-├── linked_list_main.py
+├── main.py
 ├── pyproject.toml
 ├── tests
 │   └── test_linked_list.py
