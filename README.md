@@ -73,3 +73,7 @@ As this is a learning and portfolio-focused project, external contributions aren
 
 This project is licensed under the MIT License.
 
+## References
+
+- [Algorithms for Competitive Programming](https://cp-algorithms.com/)
+
