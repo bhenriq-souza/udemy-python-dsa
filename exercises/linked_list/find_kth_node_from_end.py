@@ -1,3 +1,8 @@
+######################################################################################
+# Implement the find_kth_from_end function, which takes the LinkedList (ll) and 
+# an integer k as input, and returns the k-th node from the end of the linked list
+# WITHOUT USING LENGTH.
+######################################################################################
 from exercises.linked_list.types import ListNode
 
 
@@ -16,7 +21,7 @@ def find_kth_from_end(head: ListNode, k: int) -> ListNode | None:
         fast = fast.next
     
     return slow
-        
+
 
 def test_find_kth_from_end_single_node():
     head = ListNode(1)
